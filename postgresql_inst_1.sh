@@ -1,0 +1,63 @@
+#!/bin/bash
+
+echo "INSTALAÇÃO POSTGRESQL 10.11 Aperte ENTER para continuar"
+read #pause até que o ENTER seja pressionado
+
+cd /
+
+wget https://ftp.postgresql.org/pub/source/v10.11/postgresql-10.11.tar.gz
+
+echo "Vamos descompactar o arquivo Aperte ENTER para continuar"
+read
+
+tar -zxvf postgresql-10.11.tar.gz
+
+mv postgresql-10.11 /usr/local/src
+
+echo "AGORA VAMOS INSTALAR O PACOTE BUID-ESSENTIAL"
+echo "OBS: Caso aparecer a mensagem (Continuar? [s/n/v/...? exibe todas as opções] : digite S) e tecle ENTER para instalação do pacote Buid-Essential"
+echo "Aperte ENTER para continuar"
+read 
+
+zypper install -t pattern devel_basis
+
+echo "Agora vamos COMPILAR e INSTALAR o POSTGRESQL Aperte ENTER para continuar"
+read
+
+cd /usr/local/src
+
+cd postgresql-10.11/
+
+./configure --without-readline --without-zlib --prefix=/usr/local
+make 
+make install
+
+cd /usr/local/src/postgresql-10.11/contrib
+
+make
+make install
+
+echo "Agora vamos Criar o usuario Postgres"
+echo "Aperte ENTER para contibuar"
+read
+
+useradd -m postgres
+
+echo "Digite a senha 123456 e Aperte ENTER"
+passwd postgres
+
+echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a mesma no local /home/cuca/postgresql/10/data"
+echo "Aperte ENTER para continuar"
+read
+
+mkdir -p /home/cuca/postgresql/10/data
+chmod 777 /home/cuca/postgresql/10/data
+chown -R postgres /home/cuca/postgresql
+chmod -R 0700 /home/cuca/postgresql
+
+cd /etc
+
+echo "export PGDATA=/usr/local/bin" >> bash.bashrc
+echo "export PGDATA=/home/cuca/postgresql/10/data" >> bash.bashrc
+
+echo "Instalação do script FINALIZADA agora execute o script postgres_inst_2"
