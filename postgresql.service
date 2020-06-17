@@ -1,0 +1,15 @@
+[Unit]
+
+Descript=postgresql
+
+[Service]
+
+Type=simple
+
+RemainAfterExit=yes
+
+ExecStart=/home/postgres/banco.sh start
+
+[Install]
+
+WantedBy=multi-user.target
