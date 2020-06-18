@@ -6,6 +6,8 @@ wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/iniciabanco
 
 wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/postgresql.service
 
+chmod +x iniciabanco.sh
+
 chmod 777 iniciabanco.sh
 
 mv iniciabanco.sh /etc/systemd/system
