@@ -10,7 +10,7 @@ chmod 777 banco.sh
 
 mv banco.sh /home/postgres
 
-mv postgresql.service /lib/systemd/system
+mv postgresql.service /etc/systemd/system
 
 cd /etc/systemd/system/
 
