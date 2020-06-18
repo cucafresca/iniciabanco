@@ -12,7 +12,7 @@ mv banco.sh /home/postgres
 
 mv postgresql.service /lib/systemd/system
 
-cd /lib/systemd/system/
+cd /etc/systemd/system/
 
 systemctl daemon-reload
 
