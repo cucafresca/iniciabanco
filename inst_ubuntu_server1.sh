@@ -62,4 +62,26 @@ dpkg-reconfigure locales
 
 locale -a
 
+echo "Será baixado e instalado o Script para inicialização automática do Postgresql"
+echo "Aperte ENTER para continuar"
+read
+
+wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/iniciabanco.sh
+
+wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/postgresql.service
+
+chmod +x iniciabanco.sh
+
+chmod 777 iniciabanco.sh
+
+mv iniciabanco.sh /etc/systemd/system
+
+mv postgresql.service /etc/systemd/system
+
+cd /etc/systemd/system/
+
+systemctl daemon-reload
+
+systemctl enable postgresql.service
+
 echo "Primeira parte finalizada logue com usuario POSTGRES e execute o script inst_ubuntu_server2.sh"
