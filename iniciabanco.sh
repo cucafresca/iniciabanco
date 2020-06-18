@@ -32,7 +32,7 @@
 prefix=/usr/local
 
 # Data directory
-PGDATA="/home/cucafresca/cuca/postgresql/10/data"
+PGDATA="/home/servidor/cuca/postgresql/10/data"
 
 # Who to run the postmaster as, usually "postgres".  (NOT "root")
 PGUSER=postgres
