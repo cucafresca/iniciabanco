@@ -33,15 +33,13 @@ make install
 make install
 
 echo "Agora vamos Criar o usuario Postgres"
-echo "Aperte ENTER para contibuar"
+echo "Digite a senha 123456 e Aperte ENTER"
+echo "Aperte ENTER para continuar"
 read
 
 adduser postgres
 
-echo "Digite a senha 123456 e Aperte ENTER"
-passwd postgres
-
-echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a mesma no local /home/cuca/postgresql/10/data"
+echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a mesma no local /home/servidor/cuca/postgresql/10/data"
 echo "Aperte ENTER para continuar"
 read
 
