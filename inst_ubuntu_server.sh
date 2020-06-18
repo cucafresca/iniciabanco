@@ -39,7 +39,7 @@ read
 
 adduser postgres
 
-echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a mesma no local /home/servidor/cuca/postgresql/10/data"
+echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a pasta no local /home/servidor/cuca/postgresql/10/data"
 echo "Aperte ENTER para continuar"
 read
 
@@ -53,7 +53,7 @@ cd /etc
 echo "export PGDATA=/usr/local/bin" >> bash.bashrc
 echo "export PGDATA=/home/servidor/cuca/postgresql/10/data" >> bash.bashrc
 
-echo "Agora será configurado o locales selecione a opção PT_BR ISO-8859-1 e pt_BR"
+echo "Agora será configurado o locales selecione a opção PT_BR ISO-8859-1 e pt_BR clique em OK "
 echo "Caso não selecionar a opção PT_BR ISO-8859-1 o banco não será instalado corretamente"
 echo "Aperte ENTER e Selecione a opção PT_BR ISO-8859-1 e pt_BR"
 read
@@ -61,6 +61,36 @@ read
 dpkg-reconfigure locales
 
 locale -a
+
+echo "Vamos logar com usuario postgres digite a senha 123456"
+echo "Aperte enter para continuar"
+read
+
+su postgres
+
+cd /usr/local/bin
+
+echo "Será solicitado novamente a senha do usuário Postgres digite 123456"
+echo "aperte Enter para continuar"
+
+./initdb -U postgres -W -A md5 --locale=pt_BR.ISO-8859-1 -D /home/servidor/cuca/postgresql/10/data/
+
+echo "Estrutura criada com sucesso"
+echo "Aperte ENTER para continuar a instalação"
+read
+
+cd /home/cuca/postgresql/10/data
+rm -f cucafresca.conf* postgresql.conf* pg_hba.conf*
+
+echo "Agora vamos baixar os arquivos necessarios para configurar o POSTGRESQL"
+echo "Aperte Enter para continuar"
+read
+
+wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/cucafresca.conf
+
+wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/postgresql.conf
+
+wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/pg_hba.conf
 
 echo "Será baixado e instalado o Script para inicialização automática do Postgresql"
 echo "Aperte ENTER para continuar"
@@ -86,34 +116,10 @@ systemctl enable postgresql.service
 
 systemctl start postgresql.service
 
-echo "Vamos criar criar a estrutura do Postgresql"
-echo "Aperte enter para continuar"
+echo "Instalação finalizada agora o linux será reiniciado aperte ENTER"
+
 read
 
-cd /usr/local/bin
+reboot
 
-echo "Será solicitado a senha do usuário Postgres digite 123456"
-echo "aperte Enter para continuar"
-
-./initdb -U postgres -W -A md5 --locale=pt_BR.ISO-8859-1 -D /home/servidor/cuca/postgresql/10/data/
-
-echo "Estrutura criada com sucesso"
-echo "Aperte ENTER para continuar"
-read
-
-cd /home/cuca/postgresql/10/data
-rm -f cucafresca.conf* postgresql.conf* pg_hba.conf*
-
-echo "Agora vamos baixar os arquivos necessarios para configurar o POSTGRESQL"
-echo "Aperte Enter para continuar"
-read
-
-wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/cucafresca.conf
-
-wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/postgresql.conf
-
-wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/pg_hba.conf
-
-echo "Instalação finalizada com sucesso"
-echo "Reinicie o seu servidor"
 
