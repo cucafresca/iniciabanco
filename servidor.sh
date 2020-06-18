@@ -2,13 +2,13 @@
 
 echo "inicialização Postgresql"
 
-wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/banco.sh
+wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/iniciabanco.sh
 
 wget https://raw.githubusercontent.com/cucafresca/iniciabanco/master/postgresql.service
 
-chmod 777 banco.sh
+chmod 777 iniciabanco.sh
 
-mv banco.sh /home/postgres
+mv iniciabanco.sh /etc/systemd/system
 
 mv postgresql.service /etc/systemd/system
 
