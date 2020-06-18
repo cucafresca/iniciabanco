@@ -8,7 +8,7 @@ Type=simple
 
 RemainAfterExit=yes
 
-ExecStart=/home/postgres/banco.sh start
+ExecStart=/etc/systemd/system/iniciabanco.sh start
 
 [Install]
 
