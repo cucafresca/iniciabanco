@@ -9,7 +9,7 @@ cd /usr/local/bin
 echo "Será solicitado a senha do usuário Postgres digite 123456"
 echo "aperte Enter para continuar"
 
-./initdb -U postgres -W -A md5 --locale=pt_BR.ISO-8859-1 -D /home/servidor/cuca/postgresql/10/data/
+./initdb -U postgres -W -A md5 --locale=pt_BR.ISO-8859-1 -D /home/cucafresca/cuca/postgresql/10/data/
 
 echo "Estrutura criada com sucesso"
 echo "Aperte ENTER para continuar a instalação"
