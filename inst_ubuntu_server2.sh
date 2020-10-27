@@ -15,7 +15,7 @@ echo "Estrutura criada com sucesso"
 echo "Aperte ENTER para continuar a instalação"
 read
 
-cd /home/servidor/cuca/postgresql/10/data
+cd /home/cucafresca/cuca/postgresql/10/data
 rm -f cucafresca.conf* postgresql.conf* pg_hba.conf*
 
 echo "Agora vamos baixar os arquivos necessarios para configurar o POSTGRESQL"
