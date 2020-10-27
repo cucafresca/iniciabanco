@@ -3,8 +3,6 @@
 echo "INSTALAÇÃO POSTGRESQL 10.11 UBUNTU_SERVER Aperte ENTER para continuar"
 read #pause até que o ENTER seja pressionado
 
-cd /
-
 wget https://ftp.postgresql.org/pub/source/v10.11/postgresql-10.11.tar.gz
 
 tar -zxvf postgresql-10.11.tar.gz
@@ -39,19 +37,19 @@ read
 
 adduser postgres
 
-echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a pasta no local /home/servidor/cuca/postgresql/10/data"
+echo "Agora vamos criar a pasta DATA e atribuir as permissões para a mesma, por padrão vamos deixar a pasta no local /home/cucafresca/cuca/postgresql/10/data"
 echo "Aperte ENTER para continuar"
 read
 
-mkdir -p /home/servidor/cuca/postgresql/10/data
-chmod 777 /home/servidor/cuca/postgresql/10/data
-chown -R postgres /home/servidor/cuca/postgresql
-chmod -R 0700 /home/servidor/cuca/postgresql
+mkdir -p /home/cucafresca/cuca/postgresql/10/data
+chmod 777 /home/cucafresca/cuca/postgresql/10/data
+chown -R postgres /home/cucafresca/cuca/postgresql
+chmod -R 0700 /home/cucafresca/cuca/postgresql
 
 cd /etc
 
 echo "export PGDATA=/usr/local/bin" >> bash.bashrc
-echo "export PGDATA=/home/servidor/cuca/postgresql/10/data" >> bash.bashrc
+echo "export PGDATA=/home/cucafresca/cuca/postgresql/10/data" >> bash.bashrc
 
 echo "Agora será configurado o locales selecione a opção PT_BR ISO-8859-1 e pt_BR clique em OK "
 echo "Caso não selecionar a opção PT_BR ISO-8859-1 o banco não será instalado corretamente"
