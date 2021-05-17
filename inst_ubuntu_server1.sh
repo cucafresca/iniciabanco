@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "INSTALAÇÃO POSTGRESQL 10.11 UBUNTU_SERVER Aperte ENTER para continuar"
+echo "INSTALAÇÃO POSTGRESQL 10.16 UBUNTU_SERVER E DEBIAN Aperte ENTER para continuar"
 read #pause até que o ENTER seja pressionado
 
-wget https://ftp.postgresql.org/pub/source/v10.11/postgresql-10.11.tar.gz
+wget https://ftp.postgresql.org/pub/source/v10.16/postgresql-10.16.tar.gz
 
-tar -zxvf postgresql-10.11.tar.gz
+tar -zxvf postgresql-10.16.tar.gz
 
-mv postgresql-10.11 /usr/local/src
+mv postgresql-10.16 /usr/local/src
 
 echo "Será instalado o pacote Buil-Essential digite y e clique em ENTER"
 
@@ -15,7 +15,7 @@ apt-get install build-essential
 
 cd /usr/local/src
 
-cd postgresql-10.11/
+cd postgresql-10.16/
 
 ./configure --without-readline --without-zlib --prefix=/usr/local
 make 
@@ -23,7 +23,7 @@ make
 make install
 make install
 
-cd /usr/local/src/postgresql-10.11/contrib
+cd /usr/local/src/postgresql-10.16/contrib
 
 make
 make
