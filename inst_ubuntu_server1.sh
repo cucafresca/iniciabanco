@@ -42,7 +42,7 @@ echo "Aperte ENTER para continuar"
 read
 
 mkdir -p /home/cucafresca/cuca/postgresql/10/data
-chmod 777 /home/cucafresca/cuca/postgresql/10/data
+chmod -R 777 /home/cucafresca/cuca/postgresql/10/data
 chown -R postgres /home/cucafresca/cuca/postgresql
 chmod -R 0700 /home/cucafresca/cuca/postgresql
 
