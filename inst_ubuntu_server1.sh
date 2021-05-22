@@ -9,7 +9,7 @@ tar -zxvf postgresql-10.16.tar.gz
 
 mv postgresql-10.16 /usr/local/src
 
-echo "Será instalado o pacote Buil-Essential digite y e clique em ENTER"
+echo "Será instalado o pacote Buil-Essential clique em ENTER"
 
 apt-get install build-essential -y
 
